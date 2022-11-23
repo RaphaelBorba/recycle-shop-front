@@ -37,11 +37,11 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 position: fixed;
+top: 0;
+left: 0;
 height: 100px;
 padding-top: 30px;
 width: 100%;
-top: 0;
-left: 0;
 
 nav{
     display: flex;

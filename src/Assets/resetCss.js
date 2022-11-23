@@ -49,6 +49,7 @@ export const ResetGlobalStyle = createGlobalStyle`
 
     *{
         font-family: 'Poppins', sans-serif;
+        box-sizing: border-box;
     }
 
     body{
