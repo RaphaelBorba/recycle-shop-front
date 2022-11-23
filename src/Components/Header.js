@@ -38,14 +38,16 @@ align-items: center;
 justify-content: space-between;
 position: fixed;
 height: 100px;
+padding-top: 30px;
 width: 100%;
 top: 0;
 left: 0;
+
 nav{
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-inline: 50px;
+    margin-inline: 80px;
     cursor: pointer;
 
     h1{
@@ -54,6 +56,7 @@ nav{
         background: -webkit-linear-gradient(left, rgb(78,223,0) 0%, white 100%);
         background: linear-gradient(to right, rgb(78,223,0) 0%, white 100%);
 
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -62,8 +65,8 @@ nav{
 div{
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-inline: 50px;
+    gap: 30px;
+    margin-inline: 80px;
 
     input{
         width: 120px;
