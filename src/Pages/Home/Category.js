@@ -46,7 +46,7 @@ const Card = styled.div`
 
     ion-icon{
         padding: 15px;
-        background-color: white;
+        background: linear-gradient(45deg, rgb(78,223,0) 0%, white 100%);
         border-radius: 100%;
         font-size: 30px;
 

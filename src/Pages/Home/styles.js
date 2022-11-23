@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const HomePage = styled.main`
     
-    margin-top: 200px;
+    margin-top: 180px;
     width: 100%;
     display: flex;
     flex-direction: column;
