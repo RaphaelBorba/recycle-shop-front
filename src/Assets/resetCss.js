@@ -47,6 +47,10 @@ export const ResetGlobalStyle = createGlobalStyle`
         border-spacing: 0;
     }
 
+    *{
+        font-family: 'Poppins', sans-serif;
+    }
+
     body{
         background-color: black;
     }

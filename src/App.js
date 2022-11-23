@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <ResetGlobalStyle />
-      <Headers/>
       <BrowserRouter>
+          <Headers />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
