@@ -39,3 +39,12 @@ export const SearchZone = styled.nav`
     }
 
 `;
+
+
+export const CategoryList = styled.div`
+
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 50px;
+`;
