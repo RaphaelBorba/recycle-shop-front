@@ -8,7 +8,7 @@ export default function Home() {
 
     const { user } = useAuth()
 
-    console.log(user)
+    
     return (
 
         <HomePage>
