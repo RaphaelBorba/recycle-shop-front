@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-input {
+.input {
     max-width: 80vw;
     width: 326px;
     height: 62px;
@@ -27,7 +27,7 @@ input {
     color: #000000;
 }
 
-button {
+.Entrar {
     border: none;
     font-size: 18px;
     color: black;
@@ -68,7 +68,7 @@ button:hover {
 
 }
 
-h1:hover {
+titulo:hover {
     color: rgb(78, 223, 0);
 }
 
