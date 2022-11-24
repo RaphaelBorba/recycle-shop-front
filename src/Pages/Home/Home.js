@@ -1,7 +1,8 @@
-import { HomePage, SearchZone, CategoryList } from "./styles";
+import { HomePage, SearchZone, CategoryList, ProductsBoard } from "./styles";
 import { useAuth } from "../../Provider/auth";
 import { useState } from "react";
 import Category from "./Category";
+import Product from "./Products";
 
 
 
@@ -20,7 +21,7 @@ export default function Home() {
         }
     }
 
-    const categorys = ['Decoração', 'Moveis', 'Vestuário', 'Brinquedos']
+    const categorys = ['Decoração', 'Moveis', 'Vestuário', 'Brinquedos', 'Eletronicos']
 
     return (
 
@@ -36,8 +37,21 @@ export default function Home() {
             </SearchZone>
 
             <CategoryList>
-                {categorys.map((e, i)=><Category key={i} type={e} />)}
+                {categorys.map((e, i) => <Category key={i} type={e} />)}
             </CategoryList>
+
+            <ProductsBoard>
+
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+
+            </ProductsBoard>
 
         </HomePage>
     );
