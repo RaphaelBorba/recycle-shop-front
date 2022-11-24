@@ -18,6 +18,8 @@ export default function Category({type}) {
                 return "glasses-outline"
             case 'Brinquedos':
                 return 'airplane-outline'
+            case 'Eletronicos':
+                return 'camera-outline'
             default:
                 return
         }

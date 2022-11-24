@@ -48,3 +48,16 @@ export const CategoryList = styled.div`
     margin-top: 50px;
     gap: 50px;
 `;
+
+
+export const ProductsBoard = styled.article`
+
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-block: 50px;
+`;
