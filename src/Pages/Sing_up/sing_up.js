@@ -45,11 +45,11 @@ export default function Sing_up() {
                 <h1 className='titulo'>Recycle Shop</h1>
             </div>
 
-            <input name="name" type="text" placeholder='Nome' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
-            <input name="email" type="email" placeholder='E-mail' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
-            <input name="endereco" type="text" placeholder='Endereço' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
-            <input name="password" type="password" placeholder='Senha' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
-            <input name="passwordconfirm" type="password" placeholder='Confirme a senha' onChange={(e) => senhac({ name: e.target.name, value: e.target.value, })} />
+            <input className='input' name="name" type="text" placeholder='Nome' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
+            <input className='input' name="email" type="email" placeholder='E-mail' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
+            <input className='input' name="endereco" type="text" placeholder='Endereço' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
+            <input className='input' name="password" type="password" placeholder='Senha' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
+            <input className='input' name="passwordconfirm" type="password" placeholder='Confirme a senha' onChange={(e) => senhac({ name: e.target.name, value: e.target.value, })} />
             <button onClick={autoriza} className='Entrar'>Cadastrar</button>
 
             <Link className='link' to={'/sing_in'}>Já tem uma conta? Entre agora!</Link>
