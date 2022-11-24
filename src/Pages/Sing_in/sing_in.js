@@ -39,7 +39,7 @@ export default function Sing_in({ setdados }) {
                 <h1 className='titulo'>Recycle Shop</h1>
             </div>
 
-            <input name="email" type="email" placeholder='E-mail' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
+            <input className='input' name="email" type="email" placeholder='E-mail' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
             <input name="password" type="password" placeholder='Senha' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
             <button onClick={autoriza} className='Entrar'>Entrar</button>
             <Link className='link' to={'/sing_up'}>Não tem uma conta? Cadastre-se!</Link>
