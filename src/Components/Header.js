@@ -33,15 +33,16 @@ export default function Headers() {
 
 const Header = styled.header`
 
+background-color: black;
+z-index: 1;
 display: flex;
 align-items: center;
 justify-content: space-between;
 position: fixed;
-height: 100px;
-padding-top: 30px;
-width: 100%;
 top: 0;
 left: 0;
+height: 130px;
+width: 100%;
 
 nav{
     display: flex;
