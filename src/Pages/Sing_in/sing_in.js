@@ -24,7 +24,7 @@ export default function Sing_in({ setdados }) {
         resposta.then((ref) => {
             setdados(ref.data)
             localStorage.setItem("token", ref.data.token);
-            navigate('/home')
+            navigate('/')
         })
         resposta.catch((ref) => { alert(ref.response.data) })
 
