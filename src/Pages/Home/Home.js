@@ -3,6 +3,7 @@ import { useAuth } from "../../Provider/auth";
 import { useState } from "react";
 import Category from "./Category";
 import Product from "./Products";
+import Headers from "../../Components/Header";
 
 
 
@@ -24,7 +25,8 @@ export default function Home() {
     const categorys = ['Decoração', 'Moveis', 'Vestuário', 'Brinquedos', 'Eletronicos']
 
     return (
-
+        <>
+    <Headers/>
         <HomePage>
 
             <SearchZone>
@@ -54,5 +56,6 @@ export default function Home() {
             </ProductsBoard>
 
         </HomePage>
+        </>
     );
 }
