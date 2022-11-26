@@ -13,3 +13,8 @@ export function postCadastro(body) {
   const promise = axios.post(`${BASE_URL}/sing_up`, body);
  return promise;
 }
+
+export async function getProducts(config){
+  const promise = await axios.get(`${BASE_URL}/products`)
+  return promise
+}
