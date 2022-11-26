@@ -14,16 +14,17 @@ export default function Home() {
 
     const [productsList, setProductsList] = useState([])
     const [search, setSearch] = useState('')
+    const [searchCategory, setSearchCategory] = useState('')
 
     useEffect(() => {
 
-        getProducts()
+        getProducts(searchCategory)
             .then(e => setProductsList(e.data))
             .catch(e => {
                 console.log(e.response.data)
             })
 
-    }, [])
+    }, [searchCategory])
 
     function searchItem() {
         if (search) {
@@ -51,7 +52,7 @@ export default function Home() {
                 </SearchZone>
 
                 <CategoryList>
-                    {categorys.map((e, i) => <Category key={i} type={e} />)}
+                    {categorys.map((e, i) => <Category key={i} type={e} setSearchCategory={setSearchCategory} />)}
                 </CategoryList>
 
                 <ProductsBoard>
