@@ -14,7 +14,7 @@ export function postCadastro(body) {
  return promise;
 }
 
-export async function getProducts(config){
-  const promise = await axios.get(`${BASE_URL}/products`)
+export async function getProducts(category){
+  const promise = await axios.get(`${BASE_URL}/products?category=${category}`)
   return promise
 }

@@ -1,15 +1,10 @@
 import styled from "styled-components";
 
+export default function Category({type, setSearchCategory}) {
 
+    function ionIcon(type){
 
-
-
-
-export default function Category({type}) {
-
-    function ionIcon(typ){
-
-        switch(typ){
+        switch(type){
             case 'Decoração':
                 return "library-outline"
             case 'Moveis':
@@ -25,9 +20,31 @@ export default function Category({type}) {
         }
     }
 
+    function categoryChoice(type){
+        switch(type){
+            case 'Decoração':
+                setSearchCategory('decoration')
+                return
+            case 'Moveis':
+                setSearchCategory('furniture')
+                return
+            case 'Vestuário':
+                setSearchCategory('clothes')
+                return
+            case 'Brinquedos':
+                setSearchCategory('toys')
+                return
+            case 'Eletronicos':
+                setSearchCategory('eletronics')
+                return
+            default:
+                return
+        }
+    }
+
 
     return (
-        <Card onClick={()=>console.log('Buscar categoria')}>
+        <Card onClick={()=>categoryChoice(type)}>
             <ion-icon name={ionIcon(type)} ></ion-icon>
             <h1>{type}</h1>
         </Card>
