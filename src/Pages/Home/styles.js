@@ -147,3 +147,28 @@ export const ProductCard = styled.div`
         color: white;
     }
 `;
+export const Card = styled.div`
+
+width: 80px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap: 10px;
+cursor: pointer;
+
+ion-icon{
+    padding: 15px;
+    background: linear-gradient(45deg, rgb(78,223,0) 0%, white 100%);
+    border-radius: 100%;
+    font-size: 30px;
+
+}
+
+h1{
+    color: white;
+    font-size: 15px;
+}
+
+
+`;
