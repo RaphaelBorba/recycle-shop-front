@@ -19,20 +19,22 @@ export async function getProducts(category){
   return promise
 }
 
-export function postRegistration(body) {
-  const promise = axios.post(`${BASE_URL}/registration`, body);
+export function postRegistration(authorization,body) {
+  const promise = axios.post(`${BASE_URL}/registration`,body,{
+    headers: {
+      'Authorization': `Bearer ${authorization}`,
+    }
+    });
  return promise;
 }
 
 
-export function getShopping_card(Authorization,id) {
+export function getShopping_cart(Authorization) {
 
-  const promise = axios.get(`${BASE_URL}/shopping_card`, {
+  const promise = axios.get(`${BASE_URL}/Shopping_cart`, {
     headers: {
       'Authorization': `Bearer ${Authorization}`,
-      id
-      
     }
-  });
+    });
   return promise;
 }

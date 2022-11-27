@@ -9,12 +9,20 @@ export default function Registration() {
     const [cadastrar, setcadastrar] = useState({});
     const [carregando, setcarregando] = useState([]);
     const navigate = useNavigate();
-    let categorias = ["decoration", "furniture", "clothes", "toys", "eletronics"];
+
+    let authorization = localStorage.getItem("token");
+
+    function handleForm({ value, name }) {
+        setcadastrar({
+            ...cadastrar,
+            [name]: value,
+        });
+    };
 
     function autoriza() {
         setcarregando(["referencia"])
 
-        let resposta = postRegistration(cadastrar);
+        let resposta = postRegistration(authorization,cadastrar);
 
         resposta.then(() => {
             alert("Produto cadastrado com sucesso!")
@@ -26,12 +34,7 @@ export default function Registration() {
     }
 
 
-    function handleForm({ value, name }) {
-        setcadastrar({
-            ...cadastrar,
-            [name]: value,
-        });
-    };
+  
     return (
         <div className='fundo'>
     
