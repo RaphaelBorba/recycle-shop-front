@@ -16,13 +16,13 @@ function App() {
     <>
       <ResetGlobalStyle />
       <BrowserRouter>
-                 <Routes>
+        <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/sing_in" element={<Sing_in setdados={setdados}/>} />
-          <Route path="/sing_up" element={<Sing_up setdados={setdados}/>} />
+          <Route path="/sing_in" element={<Sing_in setdados={setdados} />} />
+          <Route path="/sing_up" element={<Sing_up setdados={setdados} />} />
           <Route path="/registration" element={<Registration />} />
-          <Route path="/product/:id" element={<ProductPage/>} />
-          <Route path="/shopping_cart" element={<Shopping_cart/>} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/shopping_cart" element={<Shopping_cart />} />
 
         </Routes>
       </BrowserRouter>
