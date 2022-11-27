@@ -140,5 +140,10 @@ export const ProductCard = styled.div`
     }
     nav button:first-child:hover{
         background-color: #3480eb;
+        color: white;
+    }
+    nav button:nth-child(2):hover{
+        background-color: rgb(78,223,0);
+        color: white;
     }
 `;

@@ -18,7 +18,7 @@ export default function Headers() {
             </nav>
             {(user.token) ?
                 <div>
-                    <input type='button' value='Produto +' onClick={()=>navigate('/create_product')} />
+                    <input type='button' value='Produto +' onClick={()=>navigate('/registration')} />
                 </div>
                 :
                 <div>
