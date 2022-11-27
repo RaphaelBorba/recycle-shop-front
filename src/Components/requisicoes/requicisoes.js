@@ -19,7 +19,7 @@ export async function getProducts(category){
   return promise
 }
 
-export function postRegistration(body) {
-  const promise = axios.post(`${BASE_URL}/registration`, body);
+export function postRegistration(body, config) {
+  const promise = axios.post(`${BASE_URL}/registration`, body, config);
  return promise;
 }

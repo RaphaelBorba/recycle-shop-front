@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Headers from "../../Components/Header";
 import { ProductPageCss } from "./styles";
 
@@ -13,6 +14,10 @@ export default function ProductPage() {
         type: 'toys',
         owner: 'Raphael'
     }
+
+    useEffect(()=>{
+        
+    },[])
 
     return (
         <>

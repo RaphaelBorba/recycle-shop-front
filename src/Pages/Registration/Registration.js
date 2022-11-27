@@ -2,6 +2,7 @@ import { postRegistration } from '../../Components/requisicoes/requicisoes'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import titulo from "../../Assets/Images/Recycle.png"
+import { useAuth } from '../../Provider/auth';
 
 export default function Registration() {
 
@@ -10,10 +11,18 @@ export default function Registration() {
     const navigate = useNavigate();
     let categorias = ["decoration", "furniture", "clothes", "toys", "eletronics"];
 
+    const {user} = useAuth()
+
+    const config = {
+        headers: {
+            Authorization: `Bearer ${user.token}`
+        }
+    }
+
     function autoriza() {
         setcarregando(["referencia"])
 
-        let resposta = postRegistration(cadastrar);
+        let resposta = postRegistration(cadastrar, config);
 
         resposta.then(() => {
             alert("Produto cadastrado com sucesso!")

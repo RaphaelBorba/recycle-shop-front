@@ -16,10 +16,15 @@ export default function Home() {
     const [search, setSearch] = useState('')
     const [searchCategory, setSearchCategory] = useState('')
 
+    console.log(user)
+
     useEffect(() => {
 
         getProducts(searchCategory)
-            .then(e => setProductsList(e.data))
+            .then(e => {
+                setProductsList(e.data)
+                console.log(e.data)
+            })
             .catch(e => {
                 console.log(e.response.data)
             })
@@ -57,14 +62,7 @@ export default function Home() {
 
                 <ProductsBoard>
 
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
+                    {productsList.map((e,i) => <Product key={i} object={e}  />)}
 
                 </ProductsBoard>
 
