@@ -23,12 +23,13 @@ export default function Sing_up() {
         });
 
     }
-    function autoriza() {
+    function  autoriza() {
         setcarregando(["referencia"])
-        let resposta = postCadastro(cadastrar);
+        
         if (cadastrar.password != confirmasenha.passwordconfirm) {
             return alert("As senhas precisam ser iguais!!")
         }
+        let resposta = postCadastro(cadastrar);
         resposta.then(() => {alert("Cadastro feito com sucesso!!!!") 
 
             navigate('/Sing_in')
