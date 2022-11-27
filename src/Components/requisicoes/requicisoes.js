@@ -19,6 +19,7 @@ export async function getProducts(category){
   return promise
 }
 
+
 export function postRegistration(authorization,body) {
   const promise = axios.post(`${BASE_URL}/registration`,body,{
     headers: {
