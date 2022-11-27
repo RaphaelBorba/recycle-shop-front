@@ -2,14 +2,24 @@ import { postRegistration } from '../../Components/requisicoes/requicisoes'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import titulo from "../../Assets/Images/Recycle.png"
+import '../Registration/Registration.css'
 import { useAuth } from '../../Provider/auth';
+
 
 export default function Registration() {
 
     const [cadastrar, setcadastrar] = useState({});
     const [carregando, setcarregando] = useState([]);
     const navigate = useNavigate();
-    let categorias = ["decoration", "furniture", "clothes", "toys", "eletronics"];
+
+    let authorization = localStorage.getItem("token");
+
+    function handleForm({ value, name }) {
+        setcadastrar({
+            ...cadastrar,
+            [name]: value,
+        });
+    };
 
     const {user} = useAuth()
 
@@ -22,7 +32,8 @@ export default function Registration() {
     function autoriza() {
         setcarregando(["referencia"])
 
-        let resposta = postRegistration(cadastrar, config);
+
+        let resposta = postRegistration(authorization,cadastrar);
 
         resposta.then(() => {
             alert("Produto cadastrado com sucesso!")
@@ -34,12 +45,7 @@ export default function Registration() {
     }
 
 
-    function handleForm({ value, name }) {
-        setcadastrar({
-            ...cadastrar,
-            [name]: value,
-        });
-    };
+  
     return (
         <div className='fundo'>
     
