@@ -2,6 +2,7 @@ import { postRegistration } from '../../Components/requisicoes/requicisoes'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import titulo from "../../Assets/Images/Recycle.png"
+import '../Registration/Registration.css'
 
 export default function Registration() {
 

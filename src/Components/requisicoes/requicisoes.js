@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://recycleshop-api.onrender.com';
+const BASE_URL = 'http://localhost:5000';
 
 
 export function postLogin(body) {
@@ -22,4 +22,17 @@ export async function getProducts(category){
 export function postRegistration(body) {
   const promise = axios.post(`${BASE_URL}/registration`, body);
  return promise;
+}
+
+
+export function getShopping_card(Authorization,id) {
+
+  const promise = axios.get(`${BASE_URL}/shopping_card`, {
+    headers: {
+      'Authorization': `Bearer ${Authorization}`,
+      id
+      
+    }
+  });
+  return promise;
 }
