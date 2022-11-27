@@ -4,6 +4,7 @@ import Home from "./Pages/Home/Home";
 import Sing_in from "./Pages/Sing_in/sing_in";
 import Sing_up from "./Pages/Sing_up/sing_up";
 import { useState } from 'react';
+import ProductPage from "./Pages/Product/ProductPage";
 
 
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sing_in" element={<Sing_in setdados={setdados}/>} />
           <Route path="/sing_up" element={<Sing_up setdados={setdados}/>} />
+          <Route path="/product/:id" element={<ProductPage/>} />
         </Routes>
       </BrowserRouter>
     </>
