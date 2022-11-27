@@ -26,6 +26,7 @@ export default function ProductPage() {
                     <p>Vendedor: <b>{product.owner}</b></p>
 
                 </div>
+                <button onClick={()=>console.log('Add no carrinho')}>Adicionar ao carrinho</button>
             </ProductPageCss>
         </>
     );
