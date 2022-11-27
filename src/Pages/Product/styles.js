@@ -4,13 +4,33 @@ import styled from "styled-components";
 export const ProductPageCss = styled.main`
 
     margin: 200px auto 0 auto;
-    padding: 20px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
     max-width: 900px;
     color: white;
-    gap: 30px;
+    nav{
+        display: flex;
+        gap: 30px;
+    }
+    button{
+        width: 300px;
+        height: 60px;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 20px;
+        transition: .5s;
+        margin-bottom: 30px;
+    }
+    button:hover{
+        background: rgb(78,223,0);
+        color: white;
+    }
     img{
         width: 400px;
+        
         border-radius: 20px;
 
     }

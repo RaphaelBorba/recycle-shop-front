@@ -18,14 +18,17 @@ export default function ProductPage() {
         <>
             <Headers />
             <ProductPageCss>
-                <img src={product.image} alt='Imagem Produto' />
-                <div>
-                    <h1>{product.name}</h1>
-                    <span>{product.description}</span>
-                    <h2>R${product.price.toFixed(2).replace('.',',')}</h2>
-                    <p>Vendedor: <b>{product.owner}</b></p>
+                <nav>
+                    <img src={product.image} alt='Imagem Produto' />
+                    <div>
+                        <h1>{product.name}</h1>
+                        <span>{product.description}</span>
+                        <h2>R${product.price.toFixed(2).replace('.', ',')}</h2>
+                        <p>Vendedor: <b>{product.owner}</b></p>
 
-                </div>
+                    </div>
+                </nav>
+                <button onClick={() => console.log('Add no carrinho')}>Adicionar ao carrinho</button>
             </ProductPageCss>
         </>
     );
