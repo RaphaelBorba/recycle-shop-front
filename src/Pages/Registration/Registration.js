@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import titulo from "../../Assets/Images/Recycle.png"
 import '../Registration/Registration.css'
-import { useAuth } from '../../Provider/auth';
 
 
 export default function Registration() {
@@ -20,14 +19,6 @@ export default function Registration() {
             [name]: value,
         });
     };
-
-    const {user} = useAuth()
-
-    const config = {
-        headers: {
-            Authorization: `Bearer ${user.token}`
-        }
-    }
 
     function autoriza() {
         setcarregando(["referencia"])

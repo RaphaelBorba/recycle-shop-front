@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'https://recycleshop-api.onrender.com';
 
 
 export function postLogin(body) {
@@ -19,6 +19,10 @@ export async function getProducts(category){
   return promise
 }
 
+export async function getOneProduct(id){
+  const promise = await axios.get(`${BASE_URL}/products/${id}`)
+  return promise
+}
 
 export function postRegistration(authorization,body) {
   const promise = axios.post(`${BASE_URL}/registration`,body,{
