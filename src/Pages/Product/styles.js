@@ -4,17 +4,17 @@ import styled from "styled-components";
 export const ProductPageCss = styled.main`
 
     margin: 200px auto 0 auto;
-    position: relative;
-    padding: 20px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
     max-width: 900px;
     color: white;
-    gap: 30px;
+    nav{
+        display: flex;
+        gap: 30px;
+    }
     button{
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%);
-        bottom: -100px;
         width: 300px;
         height: 60px;
         border: none;
@@ -22,6 +22,7 @@ export const ProductPageCss = styled.main`
         border-radius: 10px;
         font-size: 20px;
         transition: .5s;
+        margin-bottom: 30px;
     }
     button:hover{
         background: rgb(78,223,0);
