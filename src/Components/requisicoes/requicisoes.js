@@ -19,6 +19,11 @@ export async function getProducts(category){
   return promise
 }
 
+export async function getOneProduct(id){
+  const promise = await axios.get(`${BASE_URL}/products/${id}`)
+  return promise
+}
+
 export function postRegistration(body, config) {
   const promise = axios.post(`${BASE_URL}/registration`, body, config);
  return promise;

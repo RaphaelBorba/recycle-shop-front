@@ -3,16 +3,21 @@ import styled from 'styled-components';
 import { useAuth } from '../Provider/auth';
 import { useNavigate } from 'react-router-dom';
 
-export default function Headers() {
+export default function Headers({setSearchCategory}) {
 
     const { user } = useAuth()
 
     const navigate = useNavigate()
 
+    function backHome(){
+        setSearchCategory('')
+        navigate('/')
+    }
+
 
     return (
         <Header>
-            <nav onClick={()=>navigate('/')}>
+            <nav onClick={backHome}>
                 <img src={LogoImg} alt="Logo Site" />
                 <h1>Recycle Shop</h1>
             </nav>

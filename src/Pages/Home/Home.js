@@ -44,7 +44,7 @@ export default function Home() {
 
     return (
         <>
-            <Headers />
+            <Headers setSearchCategory={setSearchCategory} />
             <HomePage>
 
                 <SearchZone>
