@@ -23,7 +23,6 @@ export default function Home() {
         getProducts(searchCategory)
             .then(e => {
                 setProductsList(e.data)
-                console.log(e.data)
             })
             .catch(e => {
                 console.log(e.response.data)

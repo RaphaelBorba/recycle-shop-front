@@ -10,7 +10,9 @@ export default function Headers({setSearchCategory}) {
     const navigate = useNavigate()
 
     function backHome(){
-        setSearchCategory('')
+        if(setSearchCategory){
+            setSearchCategory('')
+        }
         navigate('/')
     }
 

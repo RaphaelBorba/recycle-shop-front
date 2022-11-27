@@ -10,8 +10,6 @@ export default function Product({object}) {
 
     const navigate = useNavigate()
 
-    console.log(object)
-
     return (
 
         <ProductCard>
