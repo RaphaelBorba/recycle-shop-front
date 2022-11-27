@@ -3,15 +3,17 @@ import styled from 'styled-components';
 import { useAuth } from '../Provider/auth';
 import { useNavigate } from 'react-router-dom';
 
-export default function Headers({setSearchCategory}) {
+export default function Headers({setSearchCategory, setSearch, setRefresh, refresh}) {
 
     const { user, setUser } = useAuth()
 
     const navigate = useNavigate()
 
     function backHome(){
-        if(setSearchCategory){
+        if(setSearchCategory || setSearch || setRefresh){
             setSearchCategory('')
+            setSearch('')
+            setRefresh(!refresh)
         }
         navigate('/')
     }
