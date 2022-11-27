@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Headers({setSearchCategory}) {
 
-    const { user } = useAuth()
+    const { user, setUser } = useAuth()
 
     const navigate = useNavigate()
 
@@ -13,6 +13,21 @@ export default function Headers({setSearchCategory}) {
         if(setSearchCategory){
             setSearchCategory('')
         }
+        navigate('/')
+    }
+
+    function logout(){
+
+        const conf = window.confirm('Deseja sair?')
+
+        if(!conf){
+            return
+        }
+        setUser({
+            name:'',
+            token:''
+        })
+        localStorage.removeItem('token')
         navigate('/')
     }
 
@@ -25,7 +40,9 @@ export default function Headers({setSearchCategory}) {
             </nav>
             {(user.token) ?
                 <div>
+                    <input type='button' value='Carrinho' onClick={()=>navigate('/shopping_cart')} />
                     <input type='button' value='Produto +' onClick={()=>navigate('/registration')} />
+                    <input type='button' value='Sair' onClick={logout} />
                 </div>
                 :
                 <div>
