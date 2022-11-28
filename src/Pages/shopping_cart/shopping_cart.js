@@ -1,14 +1,20 @@
 import '../shopping_cart/shopping_cart.css'
 import { getShopping_cart } from '../../Components/requisicoes/requicisoes'
+import { postSend } from '../../Components/requisicoes/requicisoes'
 import { useEffect, useState } from 'react';
 import titulo from "../../Assets/Images/Recycle.png"
+import { useNavigate } from 'react-router-dom'
 
 export default function Shopping_cart() {
+    const navigate = useNavigate();
+    const [carregando, setcarregando] = useState([]);
     const [carrinho, setcarrinho] = useState([])
     const [cadastrar, setcadastrar] = useState({});
+    
 
     let total = Number();
     let Authorization = localStorage.getItem("token");
+
     function handleForm({ value, name }) {
         setcadastrar({
             ...cadastrar,
@@ -33,7 +39,22 @@ export default function Shopping_cart() {
 
         }
     }
-    console.log(total.toFixed(2))
+ 
+
+    function autoriza() {
+        console.log(Authorization)
+        console.log(cadastrar)
+        setcarregando(["referencia"])
+   
+        let resposta =  postSend(Authorization, cadastrar)
+        resposta.then((ref) => {
+            alert("produto vendido com sucesso!!")
+            navigate('/')
+        })
+        resposta.catch((ref) => { console.log(ref.response.data) })
+
+    }
+
 
     return (
         <div className='fundo_carrinho'>
@@ -53,16 +74,16 @@ export default function Shopping_cart() {
             </ul>
             <div className='total'> <h1>Total:       R${total.toFixed(2)}</h1> </div>
             <div className='concluir_pagamento'>
-               <h1>Forma de pagamento:</h1>
+                <h1>Forma de pagamento:</h1>
 
-                <select className='pagamento' name="payment" onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} >
+                <select className='pagamento' name="pagamento" onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} >
                     <option value="credit_card">Cartão de cŕedito</option>
                     <option value="debit_card">Cartão de débito</option>
                     <option value="pix">Pix</option>
 
                 </select>
 
-                <button className='Entrar'>Concluir compra</button>
+                <button onClick={autoriza} className='Entrar'>Concluir compra</button>
             </div>
 
         </div>

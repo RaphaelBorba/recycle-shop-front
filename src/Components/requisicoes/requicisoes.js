@@ -43,3 +43,12 @@ export function getShopping_cart(Authorization) {
     });
   return promise;
 }
+
+export function postSend(Authorization,body) {
+  const promise = axios.post(`${BASE_URL}/sold`,body,{
+    headers: {
+      'Authorization': `Bearer ${Authorization}`,
+    }
+    });
+ return promise;
+}
