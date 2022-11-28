@@ -24,7 +24,7 @@ export default function Sing_in() {
         let resposta = postLogin(login);
         resposta.then((ref) => {
             setUser(ref.data)
-            localStorage.setItem("token", ref.data.token);
+            localStorage.setItem("user", JSON.stringify(ref.data));
             navigate('/')
         })
         resposta.catch((ref) => { alert(ref.response.data) })
