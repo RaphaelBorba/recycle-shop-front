@@ -19,7 +19,6 @@ export default function Sing_in() {
             [name]: value,
         });
     };
-
     function autoriza() {
         setcarregando(["referencia"])
         let resposta = postLogin(login);
