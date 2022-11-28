@@ -1,20 +1,25 @@
 import '../shopping_cart/shopping_cart.css'
-import { getShopping_cart } from '../../Components/requisicoes/requicisoes'
+import { getShopping_cart, deleteShopping_cart } from '../../Components/requisicoes/requicisoes'
 import { postSend } from '../../Components/requisicoes/requicisoes'
 import { useEffect, useState } from 'react';
 import titulo from "../../Assets/Images/Recycle.png"
 import { useNavigate } from 'react-router-dom'
 import Headers from '../../Components/Header';
+import { useAuth } from "../../Provider/auth";
 
 export default function Shopping_cart() {
     const navigate = useNavigate();
     const [carregando, setcarregando] = useState([]);
     const [carrinho, setcarrinho] = useState([])
     const [cadastrar, setcadastrar] = useState({});
-    
+
+    const{setUser} = useAuth()
+
+   
 
     let total = Number();
     let Authorization = localStorage.getItem("token");
+    setUser({token: Authorization})
 
     function handleForm({ value, name }) {
         setcadastrar({
@@ -30,7 +35,8 @@ export default function Shopping_cart() {
 
         });
         resposta.catch(() => alert("Tivemos um problema para atualizar seu carrinho!!"))
-    }, [Authorization]);
+    },carregando);
+
 
     if (carrinho.length > 0) {
 
@@ -40,14 +46,13 @@ export default function Shopping_cart() {
 
         }
     }
- 
+
 
     function autoriza() {
-        console.log(Authorization)
-        console.log(cadastrar)
+
         setcarregando(["referencia"])
-   
-        let resposta =  postSend(Authorization, cadastrar)
+
+        let resposta = postSend(Authorization, cadastrar)
         resposta.then((ref) => {
             alert("produto vendido com sucesso!!")
             navigate('/')
@@ -55,11 +60,20 @@ export default function Shopping_cart() {
         resposta.catch((ref) => { console.log(ref.response.data) })
 
     }
+    function deleta(id) {
+        console.log(id)
+        let deletar = deleteShopping_cart(Authorization, id)
+        deletar.then((ref) => {
+            alert("produto deletado com sucesso!!")
+        })
+        deletar.catch((ref) => { console.log(ref.response.data) })
+        setcarregando(["atualiza"])
+    }
 
 
     return (
         <div className='fundo_carrinho'>
-            <Headers/>
+            <Headers />
             <span className='topo_carrinho'><img alt='' src={titulo} />  <h1 className="Carrinho_titulo">Carrinho de compras</h1>  </span>
             <ul className='carrinho'>
                 {carrinho.map((ref, index) => {
@@ -70,6 +84,7 @@ export default function Shopping_cart() {
                             <h1 className='description'> {ref.description}</h1>
                         </div>
                         <h1 className='price'> R${ref.price}</h1>
+                        <button onClick={()=>deleta(ref._id)} className='delete_cart'> X </button>
                     </li>
                 })}
 
