@@ -25,7 +25,7 @@ export default function Registration() {
 
 
     function autoriza() {
-        setcarregando(["referencia"])
+        
         let resposta = postRegistration(authorization, cadastrar);
 
         resposta.then((res) => {
