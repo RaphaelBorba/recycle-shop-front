@@ -24,7 +24,7 @@ export default function Sing_up() {
 
     }
     function  autoriza() {
-        setcarregando(["referencia"])
+       
         
         if (cadastrar.password != confirmasenha.passwordconfirm) {
             return alert("As senhas precisam ser iguais!!")

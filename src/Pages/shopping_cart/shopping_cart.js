@@ -49,8 +49,7 @@ export default function Shopping_cart() {
 
     function autoriza() {
 
-        setcarregando(["referencia"])
-
+      
         let resposta = postSend(Authorization, cadastrar)
         resposta.then((ref) => {
             alert("produto vendido com sucesso!!")
