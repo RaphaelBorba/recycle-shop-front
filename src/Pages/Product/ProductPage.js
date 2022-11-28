@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Headers from "../../Components/Header";
 import { deleteProduct, getOneProduct } from "../../Components/requisicoes/requicisoes";
 import { useAuth } from "../../Provider/auth";
@@ -10,6 +10,8 @@ import { ProductPageCss } from "./styles";
 export default function ProductPage() {
 
     const { id } = useParams()
+
+    const navigate = useNavigate()
 
     const { user } = useAuth()
 
@@ -24,7 +26,7 @@ export default function ProductPage() {
                 console.log(e.data)
             })
             .catch(e => console.log(e.response.data))
-
+// eslint-disable-next-line
     }, [])
 
     const ownerProduct = user.id === product.id_usuario
@@ -37,14 +39,17 @@ export default function ProductPage() {
 
             deleteProduct(product._id, user.token).then((e)=>{
                 console.log(e.data)
+
             }).catch((e)=>console.log(e.response.data))
+
+            navigate('/')
         }
     }
 
     return (
         <>
             <Headers />
-            {(product)?<ProductPageCss>
+            {(product)?<ProductPageCss ownerProduct={ownerProduct}>
                 <nav>
                     <img src={product.img} alt='Imagem Produto' />
                     <div>

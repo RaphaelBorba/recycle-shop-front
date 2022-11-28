@@ -25,7 +25,7 @@ export const ProductPageCss = styled.main`
         margin-bottom: 30px;
     }
     button:hover{
-        background: rgb(78,223,0);
+        background: ${props => (props.ownerProduct)? 'red':'rgb(78,223,0)'} ;
         color: white;
     }
     img{
