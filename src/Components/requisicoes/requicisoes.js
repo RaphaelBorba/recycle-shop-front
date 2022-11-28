@@ -24,6 +24,15 @@ export async function getOneProduct(id){
   return promise
 }
 
+export async function deleteProduct(id, token){
+  const promise = axios.delete(`${BASE_URL}/products/${id}`,{
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    }
+    });
+ return promise;
+}
+
 export function postRegistration(authorization,body) {
   const promise = axios.post(`${BASE_URL}/registration`,body,{
     headers: {
