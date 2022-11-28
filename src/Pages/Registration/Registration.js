@@ -29,10 +29,10 @@ export default function Registration() {
         }
     }
 
-    function autoriza() {
+    function Autoriza() {
         setcarregando(["referencia"])
 
-
+console.log("entrou")
         let resposta = postRegistration(authorization,cadastrar);
 
         resposta.then(() => {
@@ -41,7 +41,7 @@ export default function Registration() {
             navigate('/')
         })
         resposta.catch((ref) => { if (ref.response.status) { alert(ref.response.data) } else { alert("Preencha corretamente todos os campos!!!") } })
-
+console.log("passou")
     }
   
     return (
@@ -65,7 +65,7 @@ export default function Registration() {
     
             </select>
     
-            <button onClick={autoriza} className='Entrar'>Cadastrar produto</button>
+            <button onClick={Autoriza} className='Entrar'>Cadastrar produto</button>
     
         </div>
     
