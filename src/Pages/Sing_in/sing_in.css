@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Marker+Hatch&display=swap');
 
 .fundo {
+    background-image: url("../../Assets/Images/Resumo\ de\ fumo\ verde\ sobre\ fundo\ preto\ _\ Foto\ Premium.jpeg");
+    background-size: cover;
     display: flex;
     height: 100vh;
     width: 100vw;
@@ -54,18 +56,19 @@
 .link {
     font-family: 'Raleway';
     font-style: oblique;
-    font-size: 20px;
-    color: rgb(0, 60, 255);
+    font-size: 22px;
+    font-weight: 800;
+    color: white
 }
 
 .titulo {
 
     font-size: 50px;
     font-family: 'Rubik Marker Hatch', cursive;
-    color: rgb(111, 177, 95);
+    color: rgba(65, 206, 22, 0.856);
     text-align: center;
     justify-content: center;
-
+    text-shadow: 4px 4px black;
 }
 
 titulo:hover {

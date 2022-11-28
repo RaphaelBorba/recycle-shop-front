@@ -20,29 +20,33 @@ export default function Registration() {
         });
     };
 
-    function autoriza() {
+
+
+    
+
+function autoriza() {
         setcarregando(["referencia"])
-
-
-        let resposta = postRegistration(authorization,cadastrar);
-
-        resposta.then(() => {
-            alert("Produto cadastrado com sucesso!")
-
+        let resposta =  postRegistration(authorization, cadastrar);
+        
+        resposta.then((res) => {
+            alert("produto cadastrado com sucesso!")
+          
             navigate('/')
-        })
-        resposta.catch((ref) => { if (ref.response.status) { alert(ref.response.data) } else { alert("Preencha corretamente todos os campos!!!") } })
+        });
+
+        resposta.catch((ref) => { if (ref.response.status) { alert(ref.response.data) } else { alert("Preencha corretamente todos os campos!!!") } });
+
 
     }
-  
+
     return (
         <div className='fundo'>
-    
+
             <div className='logo'>
                 <img className='titulo_img' alt='' src={titulo} />;
                 <h1 className='titulo'>Recycle Shop</h1>
             </div>
-    
+
             <input className='input' name="product" type="text" placeholder='Produto' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
             <input className='input' name="img" type="text" placeholder='Imagem(url)' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
             <input className='input' name="description" type="text" placeholder='Descrição do produto' onChange={(e) => handleForm({ name: e.target.name, value: e.target.value, })} />
@@ -53,13 +57,13 @@ export default function Registration() {
                 <option value="clothes">Vestuario</option>
                 <option value="toys">Brinquedos</option>
                 <option value="eletronics">Eletronicos</option>
-    
+
             </select>
-    
+
             <button onClick={autoriza} className='Entrar'>Cadastrar produto</button>
-    
+
         </div>
-    
+
     )
 
 }
