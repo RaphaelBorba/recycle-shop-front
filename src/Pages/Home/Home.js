@@ -7,7 +7,6 @@ import Headers from "../../Components/Header";
 import { getProducts } from "../../Components/requisicoes/requicisoes";
 
 
-
 export default function Home() {
 
     const { user } = useAuth()
@@ -15,25 +14,32 @@ export default function Home() {
     const [productsList, setProductsList] = useState([])
     const [search, setSearch] = useState('')
     const [searchCategory, setSearchCategory] = useState('')
+    const [refresh, setRefresh] = useState(true)
 
     console.log(user)
 
     useEffect(() => {
 
-        getProducts(searchCategory)
+        getProducts(searchCategory,'')
             .then(e => {
                 setProductsList(e.data)
-                console.log(e.data)
             })
             .catch(e => {
                 console.log(e.response.data)
             })
 
-    }, [searchCategory])
+    }, [searchCategory, refresh])
 
     function searchItem() {
         if (search) {
-            console.log('Enviando pesquisa')
+            
+            getProducts('',search)
+            .then(e => {
+                setProductsList(e.data)
+            })
+            .catch(e => {
+                console.log(e.response.data)
+            })
 
         } else {
             console.log('Escreva Algo')
@@ -44,13 +50,14 @@ export default function Home() {
 
     return (
         <>
-            <Headers />
+            <Headers setSearchCategory={setSearchCategory}  setSearch={setSearch} setRefresh={setRefresh} refresh={refresh}/>
             <HomePage>
 
                 <SearchZone>
                     <input
                         placeholder="Estou procurando..."
                         type='text'
+                        value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
                     <button onClick={searchItem}>Buscar</button>

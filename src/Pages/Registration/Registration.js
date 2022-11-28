@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import titulo from "../../Assets/Images/Recycle.png"
 import '../Registration/Registration.css'
-import { useAuth } from '../../Provider/auth';
 
 
 export default function Registration() {
@@ -21,6 +20,7 @@ export default function Registration() {
         });
     };
 
+
     const {user} = useAuth()
 
     const config = {
@@ -30,6 +30,8 @@ export default function Registration() {
     }
 
     function Autoriza() {
+
+
         setcarregando(["referencia"])
 
 console.log("entrou")

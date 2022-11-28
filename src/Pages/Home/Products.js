@@ -10,8 +10,6 @@ export default function Product({object}) {
 
     const navigate = useNavigate()
 
-    console.log(object)
-
     return (
 
         <ProductCard>
@@ -20,7 +18,7 @@ export default function Product({object}) {
                 <h1>{product}</h1>
                 <span>{description}</span>
                 <article>
-                    <h1>R${price}</h1>
+                    <h1>R${Number(price).toFixed(2).replace('.',',')}</h1>
 
                     <nav>
                         <button onClick={() => navigate(`/product/${_id}`)}><ion-icon name="information-circle-outline"></ion-icon></button>

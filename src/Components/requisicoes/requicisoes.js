@@ -14,11 +14,15 @@ export function postCadastro(body) {
  return promise;
 }
 
-export async function getProducts(category){
-  const promise = await axios.get(`${BASE_URL}/products?category=${category}`)
+export async function getProducts(category,name){
+  const promise = await axios.get(`${BASE_URL}/products?category=${category}&name=${name}`)
   return promise
 }
 
+export async function getOneProduct(id){
+  const promise = await axios.get(`${BASE_URL}/products/${id}`)
+  return promise
+}
 
 export function postRegistration(authorization,body) {
   const promise = axios.post(`${BASE_URL}/registration`,body,{

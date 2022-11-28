@@ -3,22 +3,48 @@ import styled from 'styled-components';
 import { useAuth } from '../Provider/auth';
 import { useNavigate } from 'react-router-dom';
 
-export default function Headers() {
+export default function Headers({setSearchCategory, setSearch, setRefresh, refresh}) {
 
-    const { user } = useAuth()
+    const { user, setUser } = useAuth()
 
     const navigate = useNavigate()
+
+    function backHome(){
+        if(setSearchCategory || setSearch || setRefresh){
+            setSearchCategory('')
+            setSearch('')
+            setRefresh(!refresh)
+        }
+        navigate('/')
+    }
+
+    function logout(){
+
+        const conf = window.confirm('Deseja sair?')
+
+        if(!conf){
+            return
+        }
+        setUser({
+            name:'',
+            token:''
+        })
+        localStorage.removeItem('token')
+        navigate('/')
+    }
 
 
     return (
         <Header>
-            <nav onClick={()=>navigate('/')}>
+            <nav onClick={backHome}>
                 <img src={LogoImg} alt="Logo Site" />
                 <h1>Recycle Shop</h1>
             </nav>
             {(user.token) ?
                 <div>
+                    <input type='button' value='Carrinho' onClick={()=>navigate('/shopping_cart')} />
                     <input type='button' value='Produto +' onClick={()=>navigate('/registration')} />
+                    <input type='button' value='Sair' onClick={logout} />
                 </div>
                 :
                 <div>
