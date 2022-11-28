@@ -22,8 +22,8 @@
     justify-content: flex-start;
     align-items: center;
     position: fixed;
-    top: 5px;
-    left: 0;
+    top: 140px;
+    left: 30px;
     width: 100%;
     height: 50px;
 }
@@ -134,6 +134,7 @@
 .fundo_carrinho{
     width: 100vw;
     height: 100vh;
+    padding-top: 130px;
     background-image: url("../../Assets/Images/compras.png");
     background-size: cover;
 }

@@ -4,6 +4,7 @@ import { postSend } from '../../Components/requisicoes/requicisoes'
 import { useEffect, useState } from 'react';
 import titulo from "../../Assets/Images/Recycle.png"
 import { useNavigate } from 'react-router-dom'
+import Headers from '../../Components/Header';
 
 export default function Shopping_cart() {
     const navigate = useNavigate();
@@ -58,6 +59,7 @@ export default function Shopping_cart() {
 
     return (
         <div className='fundo_carrinho'>
+            <Headers/>
             <span className='topo_carrinho'><img alt='' src={titulo} />  <h1 className="Carrinho_titulo">Carrinho de compras</h1>  </span>
             <ul className='carrinho'>
                 {carrinho.map((ref, index) => {

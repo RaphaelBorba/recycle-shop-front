@@ -1,31 +1,39 @@
 import { useNavigate } from "react-router-dom";
-import { deleteProduct } from "../../Components/requisicoes/requicisoes";
+import { deleteProduct, postShopping_cart } from "../../Components/requisicoes/requicisoes";
 import { useAuth } from "../../Provider/auth";
 import { ProductCard } from "./styles";
 
-export default function Product({object}) {
+export default function Product({ object }) {
 
     const { user } = useAuth()
 
-    const{description, img, price, product, _id, id_usuario} = object
+    const { description, img, price, product, _id, id_usuario } = object
 
     const navigate = useNavigate()
 
     const ownerProduct = user.id === id_usuario
 
-    function delProd(){
-        
+    function delProd() {
+
         const conf = window.confirm('Deseja deletar?')
 
-        if(conf){
+        if (conf) {
 
-            deleteProduct(_id, user.token).then((e)=>{
+            deleteProduct(_id, user.token).then((e) => {
                 console.log(e.data)
 
-            }).catch((e)=>console.log(e.response.data))
-            
+            }).catch((e) => console.log(e.response.data))
+
             navigate('/')
         }
+    }
+
+    function addCart() {
+
+        postShopping_cart(user.token, { id: _id })
+            .then(e => console.log('item add'))
+            .catch(e => console.log(e.response.data))
+
     }
 
     return (
@@ -36,16 +44,16 @@ export default function Product({object}) {
                 <h1>{product}</h1>
                 <span>{description}</span>
                 <article>
-                    <h1>R${Number(price).toFixed(2).replace('.',',')}</h1>
+                    <h1>R${Number(price).toFixed(2).replace('.', ',')}</h1>
 
                     <nav>
                         <button onClick={() => navigate(`/product/${_id}`)}><ion-icon name="information-circle-outline"></ion-icon></button>
                         {(ownerProduct) ?
                             <button onClick={delProd}><ion-icon name="trash-outline"></ion-icon></button>
                             :
-                            (user.token)?
-                            <button onClick={() => console.log('Add carrinho')}><ion-icon name="add-outline"></ion-icon></button>
-                            :''
+                            (user.token) ?
+                                <button onClick={addCart}><ion-icon name="add-outline"></ion-icon></button>
+                                : ''
                         }
                     </nav>
                 </article>

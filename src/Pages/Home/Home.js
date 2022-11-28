@@ -16,8 +16,6 @@ export default function Home() {
     const [searchCategory, setSearchCategory] = useState('')
     const [refresh, setRefresh] = useState(true)
 
-    console.log(user)
-
     useEffect(() => {
 
         getProducts(searchCategory,'')
