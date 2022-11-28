@@ -143,7 +143,7 @@ export const ProductCard = styled.div`
         color: white;
     }
     nav button:nth-child(2):hover{
-        background-color: rgb(78,223,0);
+        background-color: ${props => (props.ownerProduct)? 'red':'rgb(78,223,0)'};
         color: white;
     }
 `;
