@@ -62,6 +62,7 @@ export default function Shopping_cart() {
         console.log(id)
         let deletar = deleteShopping_cart(Authorization, id)
         deletar.then((ref) => {
+            setcarregando(["atualiza"]);
             alert("produto deletado com sucesso!!")
         })
         deletar.catch((ref) => { console.log(ref.response.data) })
