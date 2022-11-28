@@ -5,10 +5,43 @@ option {
     font-size: 23px;
     color: #000000;
 }
-select{
+
+select {
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 500;
     font-size: 23px;
     color: #000000;
+}
+
+.Voltar {
+
+    border: none;
+    font-size: 18px;
+    color: black;
+    transition: 0.5s;
+    border-radius: 15px;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(223, 10, 10);
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.Voltar:hover {
+
+    background: rgb(226, 23, 9);
+    color: white;
+    font-size: 20px;
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-between;
+    max-width: 80vw;
+    width: 326px; 
 }

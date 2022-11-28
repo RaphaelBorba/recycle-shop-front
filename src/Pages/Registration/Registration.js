@@ -22,15 +22,15 @@ export default function Registration() {
 
 
 
-    
 
-function autoriza() {
+
+    function autoriza() {
         setcarregando(["referencia"])
-        let resposta =  postRegistration(authorization, cadastrar);
-        
+        let resposta = postRegistration(authorization, cadastrar);
+
         resposta.then((res) => {
             alert("produto cadastrado com sucesso!")
-          
+
             navigate('/')
         });
 
@@ -59,8 +59,12 @@ function autoriza() {
                 <option value="eletronics">Eletronicos</option>
 
             </select>
+            <div className='botoes'>
+                <button onClick={() => { navigate('/') }} className='Voltar'>Voltar</button>
+                <button onClick={autoriza} className='Entrar'>Cadastrar produto</button>
 
-            <button onClick={autoriza} className='Entrar'>Cadastrar produto</button>
+            </div>
+
 
         </div>
 
