@@ -43,8 +43,6 @@ export default function Registration() {
         resposta.catch((ref) => { if (ref.response.status) { alert(ref.response.data) } else { alert("Preencha corretamente todos os campos!!!") } })
 
     }
-
-
   
     return (
         <div className='fundo'>
