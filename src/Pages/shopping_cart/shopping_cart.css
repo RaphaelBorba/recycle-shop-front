@@ -52,6 +52,11 @@
     margin: 15px;
     display: flex;
     align-items: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: rgba(96, 231, 96, 0.5);
 }
 
 .total {
@@ -83,18 +88,18 @@
 .product {
     font-family: 'Raleway';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 25px;
-    color: rgb(66, 202, 53);
+    color: rgb(31, 114, 24);
     margin-bottom: 5px;
 }
 
 .description {
     font-family: 'Raleway';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 800;
     font-size: 20px;
-    color: rgb(226, 240, 224);
+    color:white;
 }
 
 .concluir_pagamento {
@@ -125,4 +130,10 @@
     font-size: 20px;
     margin-right: 20px;
     margin-bottom: 10px;
+}
+.fundo_carrinho{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../Assets/Images/compras.png");
+    background-size: cover;
 }

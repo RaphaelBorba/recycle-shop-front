@@ -5,12 +5,12 @@ import '../Sing_in/sing_in.css'
 import titulo from "../../Assets/Images/Recycle.png"
 import { useAuth } from '../../Provider/auth';
 
-export default function Sing_in({ setdados }) {
+export default function Sing_in() {
 
     const [login, setlogin] = useState({});
     const [carregando, setcarregando] = useState([]);
     const navigate = useNavigate();
-    const {setUser} = useAuth()
+    const { setUser } = useAuth()
 
 
     function handleForm({ value, name }) {
@@ -24,7 +24,6 @@ export default function Sing_in({ setdados }) {
         setcarregando(["referencia"])
         let resposta = postLogin(login);
         resposta.then((ref) => {
-            setdados(ref.data)
             setUser(ref.data)
             localStorage.setItem("token", ref.data.token);
             navigate('/')

@@ -21,13 +21,8 @@ export default function Registration() {
     };
 
 
-    const {user} = useAuth()
 
-    const config = {
-        headers: {
-            Authorization: `Bearer ${user.token}`
-        }
-    }
+    
 
 function autoriza() {
         setcarregando(["referencia"])
