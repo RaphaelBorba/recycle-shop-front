@@ -25,8 +25,7 @@ export default function Sing_in() {
         resposta.then((ref) => {
             console.log(ref.data)
             setUser(ref.data)
-            localStorage.setItem("token", ref.data.token);
-            localStorage.setItem("userId", ref.data.id);
+            localStorage.setItem("user", JSON.stringify(ref.data));
             navigate('/')
         })
         resposta.catch((ref) => { alert(ref.response.data) })

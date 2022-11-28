@@ -11,7 +11,7 @@ export default function Registration() {
     const [carregando, setcarregando] = useState([]);
     const navigate = useNavigate();
 
-    let authorization = localStorage.getItem("token");
+    let authorization = JSON.parse(localStorage.getItem("user")).token;
 
     function handleForm({ value, name }) {
         setcadastrar({

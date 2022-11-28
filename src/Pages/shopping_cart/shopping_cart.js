@@ -18,8 +18,7 @@ export default function Shopping_cart() {
    
 
     let total = Number();
-    let Authorization = localStorage.getItem("token");
-    setUser({token: Authorization})
+    let Authorization = JSON.parse(localStorage.getItem("user")).token;
 
     function handleForm({ value, name }) {
         setcadastrar({
