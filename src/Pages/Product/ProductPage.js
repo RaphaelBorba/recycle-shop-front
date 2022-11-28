@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Headers from "../../Components/Header";
-import { deleteProduct, getOneProduct } from "../../Components/requisicoes/requicisoes";
+import { deleteProduct, getOneProduct, postShopping_cart } from "../../Components/requisicoes/requicisoes";
 import { useAuth } from "../../Provider/auth";
 import { ProductPageCss } from "./styles";
 
@@ -46,6 +46,16 @@ export default function ProductPage() {
         }
     }
 
+    function addCart() {
+
+        postShopping_cart(user.token, { id: product._id })
+            .then(e => {
+                navigate('/')
+            })
+            .catch(e => console.log(e.response.data))
+
+    }
+
     return (
         <>
             <Headers />
@@ -62,7 +72,7 @@ export default function ProductPage() {
                 </nav>
                 {(ownerProduct) ? 
                 <button onClick={delProd}>Deletar produto</button> 
-                :(user.token)?<button onClick={() => console.log('Add no carrinho')}>Adicionar ao carrinho</button>:''}
+                :(user.token)?<button onClick={addCart}>Adicionar ao carrinho</button>:''}
             </ProductPageCss>:''}
         </>
     );

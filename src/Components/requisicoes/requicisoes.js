@@ -11,35 +11,35 @@ export function postLogin(body) {
 
 export function postCadastro(body) {
   const promise = axios.post(`${BASE_URL}/sing_up`, body);
- return promise;
+  return promise;
 }
 
-export async function getProducts(category,name){
+export async function getProducts(category, name) {
   const promise = await axios.get(`${BASE_URL}/products?category=${category}&name=${name}`)
   return promise
 }
 
-export async function getOneProduct(id){
+export async function getOneProduct(id) {
   const promise = await axios.get(`${BASE_URL}/products/${id}`)
   return promise
 }
 
-export async function deleteProduct(id, token){
-  const promise = axios.delete(`${BASE_URL}/products/${id}`,{
+export async function deleteProduct(id, token) {
+  const promise = axios.delete(`${BASE_URL}/products/${id}`, {
     headers: {
       'Authorization': `Bearer ${token}`,
     }
-    });
- return promise;
+  });
+  return promise;
 }
 
-export function postRegistration(authorization,body) {
-  const promise = axios.post(`${BASE_URL}/registration`,body,{
+export function postRegistration(authorization, body) {
+  const promise = axios.post(`${BASE_URL}/registration`, body, {
     headers: {
       'Authorization': `Bearer ${authorization}`,
     }
-    });
- return promise;
+  });
+  return promise;
 }
 
 
@@ -49,15 +49,24 @@ export function getShopping_cart(Authorization) {
     headers: {
       'Authorization': `Bearer ${Authorization}`,
     }
-    });
+  });
   return promise;
 }
 
-export function postSend(Authorization,body) {
-  const promise = axios.post(`${BASE_URL}/sold`,body,{
+export function postShopping_cart(Authorization, body) {
+  const promise = axios.post(`${BASE_URL}/Shopping_cart`,body, {
     headers: {
       'Authorization': `Bearer ${Authorization}`,
     }
-    });
- return promise;
+  });
+  return promise;
+}
+
+export function postSend(Authorization, body) {
+  const promise = axios.post(`${BASE_URL}/sold`, body, {
+    headers: {
+      'Authorization': `Bearer ${Authorization}`,
+    }
+  });
+  return promise;
 }
