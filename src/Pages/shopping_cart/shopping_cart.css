@@ -57,6 +57,7 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-color: rgba(96, 231, 96, 0.5);
+    position: relative;
 }
 
 .total {
@@ -137,4 +138,10 @@
     padding-top: 130px;
     background-image: url("../../Assets/Images/compras.png");
     background-size: cover;
+}
+.delete_cart{
+    position: absolute;
+    right: 15px;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 0, 0.7);
 }

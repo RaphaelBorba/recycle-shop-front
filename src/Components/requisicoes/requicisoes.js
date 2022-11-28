@@ -70,3 +70,13 @@ export function postSend(Authorization, body) {
   });
   return promise;
 }
+
+export function deleteShopping_cart(Authorization, id) {
+  const promise = axios.delete(`${BASE_URL}/delete_cart`, {
+    headers: {
+      'Authorization': `Bearer ${Authorization}`,
+      id
+    }
+  });
+  return promise;
+}
