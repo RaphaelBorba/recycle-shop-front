@@ -23,8 +23,10 @@ export default function Sing_in() {
         setcarregando(["referencia"])
         let resposta = postLogin(login);
         resposta.then((ref) => {
+            console.log(ref.data)
             setUser(ref.data)
             localStorage.setItem("token", ref.data.token);
+            localStorage.setItem("userId", ref.data.id);
             navigate('/')
         })
         resposta.catch((ref) => { alert(ref.response.data) })
