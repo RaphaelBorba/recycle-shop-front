@@ -5,17 +5,12 @@ import { useEffect, useState } from 'react';
 import titulo from "../../Assets/Images/Recycle.png"
 import { useNavigate } from 'react-router-dom'
 import Headers from '../../Components/Header';
-import { useAuth } from "../../Provider/auth";
 
 export default function Shopping_cart() {
     const navigate = useNavigate();
-    const [carregando, setcarregando] = useState([]);
+    const [refresh, setRefresh] = useState(true)
     const [carrinho, setcarrinho] = useState([])
     const [cadastrar, setcadastrar] = useState({});
-
-    const{setUser} = useAuth()
-
-   
 
     let total = Number();
     let Authorization = JSON.parse(localStorage.getItem("user")).token;
@@ -34,7 +29,8 @@ export default function Shopping_cart() {
 
         });
         resposta.catch(() => alert("Tivemos um problema para atualizar seu carrinho!!"))
-    },carregando);
+// eslint-disable-next-line
+    },[refresh]);
 
 
     if (carrinho.length > 0) {
@@ -49,7 +45,7 @@ export default function Shopping_cart() {
 
     function autoriza() {
 
-        setcarregando(["referencia"])
+        setRefresh(!refresh)
 
         let resposta = postSend(Authorization, cadastrar)
         resposta.then((ref) => {
@@ -64,9 +60,10 @@ export default function Shopping_cart() {
         let deletar = deleteShopping_cart(Authorization, id)
         deletar.then((ref) => {
             alert("produto deletado com sucesso!!")
+            setRefresh(!refresh)
         })
         deletar.catch((ref) => { console.log(ref.response.data) })
-        setcarregando(["atualiza"])
+        
     }
 
 

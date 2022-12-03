@@ -3,7 +3,7 @@ import { deleteProduct, postShopping_cart } from "../../Components/requisicoes/r
 import { useAuth } from "../../Provider/auth";
 import { ProductCard } from "./styles";
 
-export default function Product({ object }) {
+export default function Product({ object, setRefresh, refresh }) {
 
     const { user } = useAuth()
 
@@ -21,6 +21,7 @@ export default function Product({ object }) {
 
             deleteProduct(_id, user.token).then((e) => {
                 console.log(e.data)
+                setRefresh(!refresh)
 
             }).catch((e) => console.log(e.response.data))
 

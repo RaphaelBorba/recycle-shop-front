@@ -1,5 +1,4 @@
 import { HomePage, SearchZone, CategoryList, ProductsBoard } from "./styles";
-import { useAuth } from "../../Provider/auth";
 import { useEffect, useState } from "react";
 import Category from "./Category";
 import Product from "./Products";
@@ -9,7 +8,6 @@ import { getProducts } from "../../Components/requisicoes/requicisoes";
 
 export default function Home() {
 
-    const { user } = useAuth()
 
     const [productsList, setProductsList] = useState([])
     const [search, setSearch] = useState('')
@@ -67,7 +65,7 @@ export default function Home() {
 
                 <ProductsBoard>
 
-                    {productsList.map((e,i) => <Product key={i} object={e}  />)}
+                    {productsList.map((e,i) => <Product key={i} object={e} setRefresh={setRefresh} refresh={refresh}  />)}
 
                 </ProductsBoard>
 
