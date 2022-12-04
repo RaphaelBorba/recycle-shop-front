@@ -8,7 +8,6 @@ import '../Registration/Registration.css'
 export default function Registration() {
 
     const [cadastrar, setcadastrar] = useState({});
-    const [carregando, setcarregando] = useState([]);
     const navigate = useNavigate();
 
     let authorization = JSON.parse(localStorage.getItem("user")).token;
